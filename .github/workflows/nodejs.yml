@@ -36,7 +36,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: dist
-          path: functions
+          path: functions/dist
       - name: check
         run: |
           cd functions
