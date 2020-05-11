@@ -14,8 +14,16 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: yarn install
+      - name: check
+        run: |
+          cd functions
+          ls
       - name: Build
         run: yarn build
+      - name: check
+          run: |
+            cd functions
+            ls
   deploy:
     name: Deploy
     needs: build
@@ -23,6 +31,10 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - name: check
+          run: |
+            cd functions
+            ls
       - name: Ready to deploy
         run: |
           npm install -g firebase-tools
