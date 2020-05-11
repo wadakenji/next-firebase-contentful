@@ -29,4 +29,6 @@ jobs:
           cd functions
           npm install
       - name: Deploy
-        run: yarn deploy
+        run: firebase deploy --token $FIREBASE_TOKEN
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
