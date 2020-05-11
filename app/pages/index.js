@@ -13,7 +13,6 @@ const Index = () => {
   }, [])
   return (
     <>
-      <div>actions test</div>
       {entries.items?.map(i => (
         <div key={i.sys.id}>
           {i.sys.id}
