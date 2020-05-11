@@ -19,7 +19,7 @@ jobs:
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
-          name: dist
+          name: functions/dist
           path: functions/dist
   deploy:
     name: Deploy
