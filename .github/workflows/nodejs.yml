@@ -14,16 +14,13 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: yarn install
-      - name: check
-        run: |
-          cd functions
-          ls
       - name: Build
         run: yarn build
-      - name: check
-        run: |
-          cd functions
-          ls
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: functions/dist
   deploy:
     name: Deploy
     needs: build
@@ -31,6 +28,14 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - name: check
+        run: |
+          cd functions
+          ls
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: dist
       - name: check
         run: |
           cd functions
